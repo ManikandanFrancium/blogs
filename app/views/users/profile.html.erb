@@ -1,0 +1,23 @@
+
+<div>
+    <div class="text-field mr">
+        <h2><strong>Username :</strong> <%= @user.username %></h2>
+    </div>
+
+    <div class="text-field mr">
+        <h2><strong>Email :</strong> <%= @user.email %></h2>
+    </div>
+</div>
+<% binding.pry %>
+<% if @user.id != current_user.id && !@user.followers.include?(current_user.id) %>
+    <%= button_to "Follow", user_follows_path(@user), method: :post, class: "comment-button" %>
+<% end %>
+
+<hr>
+
+<h2><u>Followers</u></h2>
+
+
+<% [].each do |follower| %>
+  <p><strong><%= follower.user.username %></p>
+<% end %>

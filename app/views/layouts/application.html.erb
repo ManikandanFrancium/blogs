@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <%= csrf_meta_tag %>
+  <%= stylesheet_link_tag "style" %>
+</head>
+<body>
+  <div id="header" class="mr text-right">
+    <% if signed_in? -%>
+      <%= link_to 'Profile', profile_user_path(current_user) %>
+      <%= current_user.email %>
+      <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
+    <% else -%>
+    <div class="mr">
+      <%= link_to t(".sign_in"), sign_in_path %>
+    <% end -%>
+    </div>
+  </div>
+
+  <div id="flash">
+    <% flash.each do |key, value| -%>
+      <div id="flash_<%= key %>"><%=h value %></div>
+    <% end %>
+  </div>
+
+  <%= yield %>
+</body>
+</html>

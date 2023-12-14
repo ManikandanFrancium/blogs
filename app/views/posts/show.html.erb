@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+<p style="color: green"><%= notice %></p>
+
+
+
+<%= link_to "Back to post", posts_path, class: "mr" %>  
+<div class="d-flex ">
+  <div>
+    <img  class="custom-image mr"  src="https://source.unsplash.com/random/1000×500/?Thalapathy vijay" >
+  </div>
+  <div>
+    <h1><%= @post.title %></h1>
+    <p><%= @post.description %></p>
+    <% if !current_user.nil? %>
+      <hr>
+      <div class="d-flex">
+        <% if @post.likes.present? %>
+          <div class="mr action_btn_size">
+            <i class="bi bi-suit-heart-fill"></i>
+          </div>
+        <% else %>
+          <%= button_to post_likes_path(@post), method: :post, class: "transparent_btn mr action_btn_size" do%>
+            <i class="bi bi-suit-heart"></i>
+          <% end %>
+        <% end %>
+
+
+        <%= link_to edit_post_path(@post.id), class: "mr action_btn_size" do%> 
+          <i class="bi bi-pencil"></i>
+        <% end %>
+        
+        <%= button_to "Delete", @post, method: :delete , class:"mr delete-button" %>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<hr>
+
+<h2>Comments</h2>
+
+<% if !current_user.nil? %>
+  <%= form_with(model: [ @post, Comment.new ], local: true) do |form| %>
+    <div>
+      <%= form.label :description, "New Comment" %>
+      <br>
+      <br>
+      <%= form.text_area :description, rows: 10, cols: 100 %>
+    </div>
+    <div>
+      <%= form.submit "Submit", class:"comment-button" %>
+    </div>
+  <% end %>
+<% end %>
+
+<hr>
+
+<% @post.comments.each do |comment| %>
+  <p><strong><%= comment.user.email %> : </strong> <%= comment.description %></p>
+<% end %>

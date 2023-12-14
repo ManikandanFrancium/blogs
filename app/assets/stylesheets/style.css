@@ -1,0 +1,80 @@
+.mr {
+  margin: 20px;
+}
+.btn {
+  background-color: #2a7bd1;
+  color: white;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.35rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  text-shadow: rgb(113, 103, 86);
+  width: 100px;
+  margin: 20px;
+}
+.d-flex {
+  display: flex;
+}
+.custom-image {
+  width: 400px;
+  height: 350px;
+}
+
+.form-control {
+  display: block;
+  max-width: 200px;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: black;
+  /* -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none; */
+  /* background-color: rgb(241, 241, 243)228, 228, 242); */
+  /* background-clip: padding-box; */
+  border: 1px solid black;
+  border-radius: 10px;
+  transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.delete-button {
+  background-color: #d12a38;
+  color: white;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.35rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  text-shadow: rgb(113, 103, 86);
+  width: 100px;
+  margin: 20px;
+}
+.comment-button {
+  background-color: #0b541d;
+  color: white;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.35rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  text-shadow: rgb(113, 103, 86);
+  width: 125px;
+  margin: 20px;
+}
+
+/* .icon-demo .bi,
+.icon-demo-examples .bi {
+  width: 1em;
+  height: 1em;
+} */
+
+.text-right {
+  text-align: right;
+}
+.transparent_btn {
+  background: transparent;
+  border: none;
+}
+
+.action_btn_size {
+  font-size: 1.2rem;
+}
