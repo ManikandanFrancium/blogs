@@ -15,7 +15,6 @@ namespace :db do
 
   def create_users
     puts '-----------Creating Users-----------'
-    User.create(username: 'Manikandan', email: 'manikandan@francium.tech', password: '123456')
     5.times do |_i|
       User.create!(username: Faker::Name.name, email: Faker::Internet.email, password: '123456')
     end
