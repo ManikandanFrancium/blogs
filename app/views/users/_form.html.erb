@@ -1,6 +1,11 @@
 <%= form_for @user do |form| %>
 
   <div class="text-field mr">
+    <%= form.label :username %>
+    <%= form.text_field :username, type: 'text', class: "form-control" %>
+  </div>
+
+  <div class="text-field mr">
     <%= form.label :email %>
     <%= form.text_field :email, type: 'email', class: "form-control" %>
   </div>

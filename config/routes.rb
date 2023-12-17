@@ -16,9 +16,6 @@ Rails.application.routes.draw do
   get 'show', to: 'posts#show'
 
   resources :users do
-    member do
-      get :profile
-    end
     resources :follows
   end
 

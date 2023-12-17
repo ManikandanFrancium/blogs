@@ -2,7 +2,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Users</h1>
-<table border="1">
+<table border="1" width="100%" class="table">
   <tr>
     <td>Username</td>
     <td>Email</td>
@@ -14,7 +14,6 @@
     <tr>
       <td><%= user.username %></td>
       <td><%= user.email %></td>
-      <td><%= user.password %></td>
       <td><%= link_to 'Show', user %></td>
       <td><%= link_to 'Edit', edit_post_path(user) %></td>
       <td><%= link_to 'Delete', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>

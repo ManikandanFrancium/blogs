@@ -1,12 +1,11 @@
-class FollowersController < ApplicationController
+class FollowsController < ApplicationController
   load_resource
   before_action :set_user
 
   def create
-    follower_id = current_user.id
-    @follow = Follow.new(user: @user, follower_id:)
+    @follow = Follow.new(follower_id: @user.id, following_id: current_user.id)
     if @follow.save
-      redirect_to profile_user_path(@user)
+      redirect_to user_path(@user)
     else
       # flash
     end

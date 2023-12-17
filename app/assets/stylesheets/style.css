@@ -78,3 +78,11 @@
 .action_btn_size {
   font-size: 1.2rem;
 }
+
+.table {
+  font-size: 1.1rem;
+}
+.table th,
+.table td {
+  padding-block: 8px;
+}

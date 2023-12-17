@@ -7,16 +7,25 @@ class UsersController < ApplicationController
 
   def show; end
 
-  def profile; end
-
   def create
-    binding.pry
     # after signup(creating data) send "UserMailer.welcome_email.deliver_now"
     if @user.save
       redirect_to users_path
     else
       render :new
     end
+  end
+
+  def follow
+    @user = User.find(params[:id])
+    current_user.following << @user unless current_user.following.include?(@user)
+    redirect_to @user, notice: 'Successfully followed user.'
+  end
+
+  def unfollow
+    @user = User.find(params[:id])
+    current_user.following.delete(@user)
+    redirect_to @user, notice: 'Successfully unfollowed user.'
   end
 
   def update
