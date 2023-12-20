@@ -1,4 +1,3 @@
-
 <%= link_to "Back", users_path %>
 <div>
     <div class="text-field mr">
@@ -8,7 +7,7 @@
     <div class="text-field mr">
         <h2><strong>Email :</strong> <%= @user.email %></h2>
     </div>
-<% if @user.id != current_user.id && !@user.followers.exists?(following_id: current_user.id) %>
+<% if @user.id != current_user&.id && !@user.followers.exists?(following_id: current_user&.id) %>
     <%= button_to "Follow", user_follows_path(@user), method: :post, class: "comment-button" %>
 <% end %>
 
@@ -16,15 +15,19 @@
 
 <hr>
 
-<h2><u>Following</u></h2>
+<h2><u>Followings</u></h2>
 
-<% @user.followings.each do |following| %>
-  <p><strong><%= User.find(following.follower_id).username %></p>
+<% @user.following_users.each do |following| %>
+  <div>
+    <strong><%= following.username %></strong> : <strong><%= following.email %></strong>
+  </div>
 <% end %>
 
 
-<h2><u>Following</u></h2>
+<h2><u>Followers</u></h2>
 
-<% @user.followers.each do |follower| %>
-  <p><strong><%= User.find(follower.following_id).username %></p>
+<% @user.follower_users.each do |follower| %>
+  <div>
+    <strong><%= follower.username %></strong> : <strong><%= follower.email %></strong>
+  </div>
 <% end %>

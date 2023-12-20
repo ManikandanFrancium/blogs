@@ -47,5 +47,9 @@ namespace :db do
     User.limit(5).offset(1).each do |user|
       Follow.create!(follower_id: user.id, following_id: following_user.id)
     end
+
+    User.limit(5).offset(1).each do |user|
+      Follow.create!(follower_id: following_user.id, following_id: user.id)
+    end
   end
 end
