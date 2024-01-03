@@ -3,7 +3,7 @@ class User < ApplicationRecord
   has_many :posts, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :likes
-  has_one_attached :profile_picture
+  has_one_attached :post_image
 
   has_many :followers, foreign_key: :follower_id, class_name: 'Follow'
 

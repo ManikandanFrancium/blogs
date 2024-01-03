@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   # end
 
   get '/sign_in' => 'clearance/sessions#new', as: 'sign_in'
+  post '/login' => 'clearance/sessions#create', as: 'login'
   delete '/sign_out' => 'clearance/sessions#destroy', as: 'sign_out'
   get '/sign_up' => 'clearance/users#new', as: 'sign_up'
   get 'new', to: 'posts#new'
@@ -17,6 +18,9 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :follows
+    collection do
+      get :users_api
+    end
   end
 
   resources :posts do

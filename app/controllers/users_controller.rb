@@ -7,6 +7,10 @@ class UsersController < ApplicationController
 
   def index; end
 
+  def users_api
+    # render json: UserSerializer.new(@users).serializable_hash[:data], status: :ok
+  end
+
   def show; end
 
   def create
@@ -38,6 +42,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:email, :password, :profile_picture)
+    params.require(:user).permit(:email, :password, :post_image)
   end
 end

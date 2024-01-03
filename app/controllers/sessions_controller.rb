@@ -1,4 +1,8 @@
 class SessionsController < ApplicationController
+  def create
+    binding.pry
+  end
+
   private
 
   def url_after_create

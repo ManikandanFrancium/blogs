@@ -1,5 +1,5 @@
 .mr {
-  margin: 20px;
+  margin: 30px;
 }
 .btn {
   background-color: #2a7bd1;
@@ -85,4 +85,17 @@
 .table th,
 .table td {
   padding-block: 8px;
+}
+
+.padding {
+  padding: 20px;
+}
+
+.color {
+  background-color: aqua;
+}
+
+.width_1 {
+  width: 400px;
+  height: 300px;
 }

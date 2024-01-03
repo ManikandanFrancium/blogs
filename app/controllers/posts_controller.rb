@@ -4,12 +4,21 @@ class PostsController < ApplicationController
   def index
     # @post = Post.all
     # render json: PostSerializer.new(@posts)
+    @posts = Post.paginate(page: params[:page], per_page: 5)
   end
 
   def show
     # @post = Post.find(params[:id])
     # render json: PostSerializer.new(@post)
     @comment = Comment.new
+    @versions = @post.versions.order(created_at: :desc)
+    @current_version = @versions.first
+    @previous_version = @versions.second # assuming there is a previous version
+    if @previous_version
+      @diff = Diffy::Diff.new(@previous_version.object, @current_version.object).to_s(:html)
+    else
+      'No previous version available.'
+    end
   end
 
   # GET /posts/new
